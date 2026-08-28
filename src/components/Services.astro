@@ -1,0 +1,383 @@
+---
+---
+
+<section id="services" class="section-padding relative overflow-hidden" style="background:#080E1A;">
+
+  <!-- Ambient -->
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.05] pointer-events-none"
+       style="background:radial-gradient(circle,#2563EB,transparent);filter:blur(90px);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 gsap-reveal">
+      <div>
+        <div class="tag-pill mb-5">Що ми робимо</div>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-white">
+          Наші <span class="gradient-text">послуги</span>
+        </h2>
+      </div>
+      <p class="text-brand-gray text-base max-w-xs leading-relaxed md:text-right">
+        Повний цикл розробки — від ідеї<br class="hidden md:block"/> до живого продукту.
+      </p>
+    </div>
+
+    <!-- ══ Bento grid ══ -->
+    <div class="flex lg:grid overflow-x-auto lg:overflow-visible snap-x lg:snap-none snap-mandatory pb-4 lg:pb-0 gap-4 lg:gap-3 -mx-6 lg:mx-0 px-6 lg:px-0" id="services-bento">
+
+      <!-- ━━ 1. Веб-додатки (large, col-span-2) ━━ -->
+      <div class="service-bento-card flex-shrink-0 lg:flex-shrink snap-start w-[85vw] sm:w-[70vw] lg:w-auto lg:col-span-2 rounded-3xl overflow-hidden group relative"
+           style="opacity:0;transform:translateY(40px);background:rgba(255,255,255,0.028);border:1px solid rgba(255,255,255,0.07);">
+        <!-- Gradient top line -->
+        <div class="absolute top-0 left-0 right-0 h-[2px]"
+             style="background:linear-gradient(90deg,#2563EB,#3B82F6);"></div>
+
+        <!-- Mini dashboard illustration -->
+        <div class="relative h-52 overflow-hidden px-6 pt-6"
+             style="background:linear-gradient(180deg,rgba(37,99,235,0.06) 0%,transparent 100%);">
+          <div class="absolute inset-x-6 top-6 bottom-0 rounded-t-xl overflow-hidden"
+               style="background:#0A0F1C;border:1px solid rgba(255,255,255,0.07);border-bottom:none;">
+            <!-- Browser bar -->
+            <div class="flex items-center gap-1.5 px-3 h-7 border-b"
+                 style="background:rgba(255,255,255,0.02);border-color:rgba(255,255,255,0.05);">
+              <div class="w-2 h-2 rounded-full" style="background:#EF4444;opacity:.6;"></div>
+              <div class="w-2 h-2 rounded-full" style="background:#F59E0B;opacity:.6;"></div>
+              <div class="w-2 h-2 rounded-full" style="background:#10B981;opacity:.6;"></div>
+              <div class="flex-1 h-3.5 rounded-sm mx-2" style="background:rgba(255,255,255,0.04);"></div>
+            </div>
+            <!-- App layout -->
+            <div class="flex h-full">
+              <!-- Sidebar -->
+              <div class="w-14 border-r flex flex-col gap-2 p-2 pt-3 flex-shrink-0"
+                   style="background:rgba(255,255,255,0.015);border-color:rgba(255,255,255,0.04);">
+                <div class="h-1.5 rounded-full" style="background:linear-gradient(90deg,#2563EB,#06B6D4);width:75%;"></div>
+                <div class="h-1.5 rounded-full" style="background:rgba(255,255,255,0.08);"></div>
+                <div class="h-1.5 rounded-full" style="background:rgba(255,255,255,0.08);"></div>
+                <div class="h-1.5 rounded-full" style="background:rgba(255,255,255,0.05);"></div>
+                <div class="h-1.5 rounded-full" style="background:rgba(255,255,255,0.08);"></div>
+              </div>
+              <!-- Main content -->
+              <div class="flex-1 p-3 flex flex-col gap-2">
+                <!-- KPI row -->
+                <div class="flex gap-2">
+                  {['#2563EB','#06B6D4','#7C3AED'].map((c) => (
+                    <div class="flex-1 rounded-lg p-2" style={`background:rgba(255,255,255,0.03);border:1px solid ${c}22;`}>
+                      <div class="h-1.5 rounded mb-1" style={`background:${c};opacity:.5;width:40%;`}></div>
+                      <div class="h-2.5 rounded" style={`background:${c};opacity:.8;width:60%;`}></div>
+                    </div>
+                  ))}
+                </div>
+                <!-- Chart -->
+                <div class="flex-1 flex items-end gap-1 pt-1">
+                  {[35,55,42,70,58,85,62,78,50,90].map((h) => (
+                    <div class="flex-1 rounded-sm transition-all"
+                         style={`height:${h}%;background:linear-gradient(180deg,rgba(59,130,246,0.7),rgba(37,99,235,0.3));`}></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-7 pt-5">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <h3 class="font-display font-bold text-2xl text-white group-hover:gradient-text transition-all duration-300">Веб-додатки</h3>
+            <div class="flex gap-1.5 mt-1">
+              {['React','Next.js','Node.js'].map(t => (
+                <span class="text-xs px-2.5 py-1 rounded-full font-medium"
+                      style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);color:#93C5FD;">{t}</span>
+              ))}
+            </div>
+          </div>
+          <p class="text-brand-gray text-sm leading-relaxed">
+            Full-stack веб-додатки на сучасному стеку — від CRM до SaaS-платформ. Швидкі, масштабовані, заточені під вашу бізнес-логіку.
+          </p>
+        </div>
+      </div>
+
+      <!-- ━━ 2. Лендінги (small, col-span-1) ━━ -->
+      <div class="service-bento-card flex-shrink-0 lg:flex-shrink snap-start w-[85vw] sm:w-[70vw] lg:w-auto rounded-3xl overflow-hidden group relative"
+           style="opacity:0;transform:translateY(40px);background:rgba(255,255,255,0.028);border:1px solid rgba(255,255,255,0.07);">
+        <div class="absolute top-0 left-0 right-0 h-[2px]"
+             style="background:linear-gradient(90deg,#3B82F6,#06B6D4);"></div>
+
+        <!-- Mini landing illustration -->
+        <div class="h-52 overflow-hidden px-5 pt-5 relative"
+             style="background:linear-gradient(180deg,rgba(6,182,212,0.06) 0%,transparent 100%);">
+          <div class="rounded-t-xl overflow-hidden h-full flex flex-col"
+               style="background:#0B1120;border:1px solid rgba(255,255,255,0.09);border-bottom:none;">
+            <!-- Nav bar -->
+            <div class="flex items-center justify-between px-4 flex-shrink-0" style="height:28px;background:#0D1428;border-bottom:1px solid rgba(255,255,255,0.06);">
+              <div class="flex items-center gap-1.5">
+                <div class="w-3.5 h-3.5 rounded" style="background:linear-gradient(135deg,#2563EB,#06B6D4);"></div>
+                <div class="h-1.5 w-9 rounded-full" style="background:rgba(255,255,255,0.35);"></div>
+              </div>
+              <div class="flex items-center gap-2.5">
+                {[20,16,18].map(w => (
+                  <div class="h-1 rounded-full" style={`background:rgba(255,255,255,0.18);width:${w}px;`}></div>
+                ))}
+              </div>
+              <div class="h-5 rounded-full px-2 flex items-center"
+                   style="background:linear-gradient(90deg,#2563EB,#06B6D4);font-size:7px;color:white;font-weight:700;">CTA</div>
+            </div>
+            <!-- Hero block -->
+            <div class="flex flex-col items-center justify-center gap-2 flex-shrink-0 px-4"
+                 style="height:72px;background:linear-gradient(135deg,rgba(37,99,235,0.18),rgba(6,182,212,0.1));">
+              <div class="h-2.5 rounded-full" style="background:rgba(255,255,255,0.65);width:68%;"></div>
+              <div class="h-1.5 rounded-full" style="background:rgba(255,255,255,0.3);width:52%;"></div>
+              <div class="flex gap-1.5 mt-1">
+                <div class="h-5 w-16 rounded-full" style="background:linear-gradient(90deg,#2563EB,#06B6D4);"></div>
+                <div class="h-5 w-12 rounded-full" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.2);"></div>
+              </div>
+            </div>
+            <!-- Feature cards -->
+            <div class="flex gap-2 px-3 pt-3 flex-shrink-0">
+              {[
+                { c: '#2563EB', w: '55%' },
+                { c: '#06B6D4', w: '70%' },
+                { c: '#7C3AED', w: '45%' },
+              ].map(({ c, w }) => (
+                <div class="flex-1 rounded-lg p-2 flex flex-col gap-1.5"
+                     style={`background:rgba(255,255,255,0.03);border:1px solid ${c}35;`}>
+                  <div class="w-5 h-5 rounded-md" style={`background:${c}20;border:1px solid ${c}50;`}></div>
+                  <div class="h-1.5 rounded-full" style={`background:rgba(255,255,255,0.25);width:${w};`}></div>
+                  <div class="h-1 rounded-full" style="background:rgba(255,255,255,0.1);width:40%;"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-4">
+          <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:gradient-text transition-all duration-300">Лендінги</h3>
+          <p class="text-brand-gray text-sm leading-relaxed mb-4">
+            Конверсійні сторінки з ідеальним Lighthouse score — для кампаній, продуктів і подій.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {['Astro','Tailwind','GSAP'].map(t => (
+              <span class="text-xs px-2.5 py-1 rounded-full"
+                    style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.18);color:#67E8F9;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- ━━ 3. Боти (small, col-span-1) ━━ -->
+      <div class="service-bento-card flex-shrink-0 lg:flex-shrink snap-start w-[85vw] sm:w-[70vw] lg:w-auto rounded-3xl overflow-hidden group relative"
+           style="opacity:0;transform:translateY(40px);background:rgba(255,255,255,0.028);border:1px solid rgba(255,255,255,0.07);">
+        <div class="absolute top-0 left-0 right-0 h-[2px]"
+             style="background:linear-gradient(90deg,#06B6D4,#2563EB);"></div>
+
+        <!-- Mini Telegram chat illustration -->
+        <div class="h-52 overflow-hidden px-5 pt-5 relative"
+             style="background:linear-gradient(180deg,rgba(6,182,212,0.06) 0%,transparent 100%);">
+          <div class="rounded-t-xl overflow-hidden h-full flex flex-col"
+               style="background:#0B1120;border:1px solid rgba(255,255,255,0.09);border-bottom:none;">
+            <!-- Chat header -->
+            <div class="flex items-center gap-2.5 px-3 flex-shrink-0"
+                 style="height:36px;background:#0D1428;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <div class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center"
+                   style="background:linear-gradient(135deg,#2563EB,#06B6D4);">
+                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8.02c-.13.6-.47.74-.95.46l-2.62-1.93-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.66 4.84-4.37c.21-.19-.05-.29-.32-.1L7.34 14.4l-2.56-.8c-.56-.17-.57-.56.12-.83l10.01-3.86c.46-.17.86.11.73.89z"/>
+                </svg>
+              </div>
+              <div class="flex flex-col gap-0.5">
+                <div class="h-1.5 w-16 rounded-full" style="background:rgba(255,255,255,0.5);"></div>
+                <div class="flex items-center gap-1">
+                  <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                  <div class="h-1 w-8 rounded-full" style="background:rgba(255,255,255,0.2);"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Messages -->
+            <div class="flex-1 px-3 py-2 flex flex-col gap-2 overflow-hidden">
+              <!-- Bot msg 1 -->
+              <div class="flex items-end gap-1.5">
+                <div class="w-4 h-4 rounded-full flex-shrink-0"
+                     style="background:linear-gradient(135deg,#2563EB,#06B6D4);"></div>
+                <div class="rounded-2xl rounded-bl-none px-3 py-2"
+                     style="background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.06);max-width:78%;">
+                  <div class="h-1.5 rounded-full mb-1" style="background:rgba(255,255,255,0.55);width:88px;"></div>
+                  <div class="h-1.5 rounded-full" style="background:rgba(255,255,255,0.3);width:64px;"></div>
+                </div>
+              </div>
+              <!-- User msg -->
+              <div class="flex justify-end">
+                <div class="rounded-2xl rounded-br-none px-3 py-2"
+                     style="background:linear-gradient(135deg,rgba(37,99,235,0.5),rgba(6,182,212,0.35));max-width:65%;">
+                  <div class="h-1.5 rounded-full" style="background:rgba(255,255,255,0.7);width:56px;"></div>
+                </div>
+              </div>
+              <!-- Bot msg 2 -->
+              <div class="flex items-end gap-1.5">
+                <div class="w-4 h-4 rounded-full flex-shrink-0"
+                     style="background:linear-gradient(135deg,#2563EB,#06B6D4);"></div>
+                <div class="rounded-2xl rounded-bl-none px-3 py-2"
+                     style="background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.06);max-width:85%;">
+                  <div class="h-1.5 rounded-full mb-1" style="background:rgba(255,255,255,0.55);width:100px;"></div>
+                  <div class="h-1.5 rounded-full" style="background:rgba(255,255,255,0.3);width:72px;"></div>
+                </div>
+              </div>
+              <!-- Inline keyboard buttons -->
+              <div class="flex gap-1.5 pl-5">
+                <div class="flex-1 h-6 rounded-lg flex items-center justify-center"
+                     style="background:rgba(37,99,235,0.2);border:1px solid rgba(37,99,235,0.4);">
+                  <div class="h-1 rounded-full" style="background:rgba(96,165,250,0.8);width:36px;"></div>
+                </div>
+                <div class="flex-1 h-6 rounded-lg flex items-center justify-center"
+                     style="background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.35);">
+                  <div class="h-1 rounded-full" style="background:rgba(103,232,249,0.7);width:28px;"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Input bar -->
+            <div class="flex items-center gap-2 px-3 flex-shrink-0"
+                 style="height:30px;background:#0D1428;border-top:1px solid rgba(255,255,255,0.06);">
+              <div class="flex-1 h-4 rounded-full" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);"></div>
+              <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                   style="background:linear-gradient(135deg,#2563EB,#06B6D4);">
+                <svg class="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-4">
+          <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:gradient-text transition-all duration-300">Боти та автоматизація</h3>
+          <p class="text-brand-gray text-sm leading-relaxed mb-4">
+            Telegram-боти, CRM-інтеграції та автоматизація рутини — команда займається важливим.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {['Python','Telegram API','Webhooks'].map(t => (
+              <span class="text-xs px-2.5 py-1 rounded-full"
+                    style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.18);color:#67E8F9;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- ━━ 4. API та інтеграції (large, col-span-2) ━━ -->
+      <div class="service-bento-card flex-shrink-0 lg:flex-shrink snap-start w-[85vw] sm:w-[70vw] lg:w-auto lg:col-span-2 rounded-3xl overflow-hidden group relative"
+           style="opacity:0;transform:translateY(40px);background:rgba(255,255,255,0.028);border:1px solid rgba(255,255,255,0.07);">
+        <div class="absolute top-0 left-0 right-0 h-[2px]"
+             style="background:linear-gradient(90deg,#2563EB,#06B6D4);"></div>
+
+        <!-- API nodes illustration -->
+        <div class="h-52 relative overflow-hidden"
+             style="background:linear-gradient(180deg,rgba(37,99,235,0.07) 0%,transparent 100%);">
+
+          <!-- SVG connecting lines (behind nodes) -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none">
+            <defs>
+              <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#2563EB" stop-opacity="0.7"/>
+                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.7"/>
+              </linearGradient>
+            </defs>
+            <line x1="50%" y1="50%" x2="16%" y2="22%" stroke="url(#gl)" stroke-width="1.2" stroke-dasharray="5 4"/>
+            <line x1="50%" y1="50%" x2="82%" y2="18%" stroke="url(#gl)" stroke-width="1.2" stroke-dasharray="5 4"/>
+            <line x1="50%" y1="50%" x2="10%" y2="76%" stroke="url(#gl)" stroke-width="1.2" stroke-dasharray="5 4"/>
+            <line x1="50%" y1="50%" x2="84%" y2="76%" stroke="url(#gl)" stroke-width="1.2" stroke-dasharray="5 4"/>
+            <line x1="50%" y1="50%" x2="50%" y2="6%"  stroke="url(#gl)" stroke-width="1.2" stroke-dasharray="5 4"/>
+          </svg>
+
+          <!-- Center hub -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+            <!-- Pulse ring -->
+            <div class="absolute inset-0 rounded-2xl" style="background:rgba(37,99,235,0.2);filter:blur(12px);transform:scale(1.6);"></div>
+            <div class="relative w-14 h-14 rounded-2xl flex items-center justify-center"
+                 style="background:linear-gradient(135deg,#2563EB,#06B6D4);box-shadow:0 0 24px rgba(37,99,235,0.6),0 0 48px rgba(6,182,212,0.2);">
+              <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Satellite nodes -->
+          {[
+            { label: 'Stripe',    x: '14%', y: '18%', c: '#7C3AED', icon: '₴' },
+            { label: 'CRM',       x: '82%', y: '15%', c: '#06B6D4', icon: '◈' },
+            { label: 'Telegram',  x: '8%',  y: '74%', c: '#2563EB', icon: '✈' },
+            { label: 'Analytics', x: '84%', y: '74%', c: '#10B981', icon: '↗' },
+            { label: 'Email',     x: '50%', y: '5%',  c: '#F59E0B', icon: '✉' },
+          ].map((node) => (
+            <div class="absolute flex flex-col items-center gap-1"
+                 style={`left:${node.x};top:${node.y};transform:translate(-50%,-50%);`}>
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm"
+                   style={`background:${node.c}18;border:1px solid ${node.c}55;color:${node.c};box-shadow:0 0 12px ${node.c}25;`}>
+                {node.icon}
+              </div>
+              <span class="font-medium" style={`font-size:9px;color:${node.c};`}>{node.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Content -->
+        <div class="p-7 pt-5">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <h3 class="font-display font-bold text-2xl text-white group-hover:gradient-text transition-all duration-300">API та інтеграції</h3>
+            <div class="flex gap-1.5 mt-1">
+              {['REST','GraphQL','Webhooks'].map(t => (
+                <span class="text-xs px-2.5 py-1 rounded-full font-medium"
+                      style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);color:#93C5FD;">{t}</span>
+              ))}
+            </div>
+          </div>
+          <p class="text-brand-gray text-sm leading-relaxed">
+            Підключаємо CRM, платіжні системи, месенджери та аналітику в єдину екосистему. Дані синхронізуються в реальному часі.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Swipe hint — mobile only -->
+    <div class="flex lg:hidden items-center justify-center gap-2 mt-4 text-brand-gray/50">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      </svg>
+      <span class="text-xs tracking-wider">Гортайте</span>
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #services-bento { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  #services-bento::-webkit-scrollbar { display: none; }
+</style>
+
+<script is:inline>
+  gsap.to('.service-bento-card', {
+    opacity: 1,
+    y: 0,
+    duration: 0.75,
+    stagger: 0.15,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#services-bento',
+      start: 'top 80%',
+    },
+  });
+
+  // Hover glow
+  document.querySelectorAll('.service-bento-card').forEach((card) => {
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = 'rgba(59,130,246,0.3)';
+      card.style.boxShadow = '0 0 60px rgba(37,99,235,0.1), inset 0 1px 0 rgba(255,255,255,0.06)';
+      card.style.transform = 'translateY(-4px)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = 'rgba(255,255,255,0.07)';
+      card.style.boxShadow = '';
+      card.style.transform = '';
+    });
+  });
+</script>

@@ -1,0 +1,24 @@
+<svg viewBox="0 0 180 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="waveGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left bracket -->
+  <path d="M 40 10 L 10 45 L 10 55 L 40 90"
+        fill="none" stroke="url(#waveGrad3)" stroke-width="14"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right bracket -->
+  <path d="M 140 10 L 170 45 L 170 55 L 140 90"
+        fill="none" stroke="url(#waveGrad3)" stroke-width="14"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wave inside the brackets -->
+  <path d="M 55 55 Q 70 30, 85 55 T 115 55 T 145 55"
+        fill="none" stroke="url(#waveGrad3)" stroke-width="10"
+        stroke-linecap="round"/>
+  <!-- Small dot accent -->
+  <circle cx="90" cy="55" r="6" fill="#06B6D4"/>
+</svg>

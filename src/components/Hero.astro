@@ -1,0 +1,352 @@
+---
+---
+
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden" style="background:#080E1A;">
+
+  <!-- Background layers -->
+  <div class="absolute top-0 right-0 w-[900px] h-[800px] pointer-events-none opacity-[0.15]"
+       style="background:radial-gradient(circle at 70% 25%,#2563EB,transparent 60%);filter:blur(120px);"></div>
+  <div class="absolute bottom-0 left-0 w-[700px] h-[600px] pointer-events-none opacity-[0.10]"
+       style="background:radial-gradient(circle at 30% 75%,#06B6D4,transparent 65%);filter:blur(100px);"></div>
+  <div class="dot-grid absolute inset-0 pointer-events-none opacity-40"></div>
+  <!-- Vignette -->
+  <div class="absolute inset-0 pointer-events-none"
+       style="background:radial-gradient(ellipse 90% 70% at 50% 50%,transparent 30%,rgba(8,14,26,0.7) 100%);"></div>
+
+  <!-- Main container -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 xl:gap-20 items-center">
+
+      <!-- ── Left: text ── -->
+      <div>
+        <!-- Tag -->
+        <div id="hero-tag" class="inline-flex items-center gap-2 tag-pill mb-8" style="opacity:0;transform:translateY(20px);">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
+          Веб-студія · Україна
+        </div>
+
+        <!-- Headline -->
+        <h1 id="hero-headline" class="font-display font-bold leading-[1.06] text-white mb-6"
+            style="font-size:clamp(2.4rem,4.8vw,4rem);opacity:0;transform:translateY(40px);">
+          Ми будуємо цифрові<br/>
+          продукти, що&nbsp;<span id="hero-word" class="gradient-text-hero">зростають</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p id="hero-sub" class="text-brand-gray text-lg leading-relaxed mb-10 max-w-lg"
+           style="opacity:0;transform:translateY(25px);">
+          Від веб-додатків і лендінгів до ботів та інтеграцій&nbsp;—
+          перетворюємо ідеї у продукти, що дійсно приносять результат.
+        </p>
+
+        <!-- CTAs -->
+        <div id="hero-cta" class="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 mb-10 sm:mb-12"
+             style="opacity:0;transform:translateY(20px);">
+          <a href="#contact" class="btn-primary w-full sm:w-auto justify-center">
+            <span>Розпочати проєкт</span>
+            <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="#portfolio" class="btn-secondary w-full sm:w-auto justify-center">
+            Переглянути кейси
+          </a>
+        </div>
+
+        <!-- Mobile visual — only shown on mobile (<lg) -->
+        <div class="lg:hidden mt-8" id="hero-mobile-visual" style="opacity:0;transform:translateY(30px);">
+          <!-- Mini dashboard card -->
+          <div class="rounded-2xl overflow-hidden" style="border:1px solid rgba(255,255,255,0.09);background:#0D1526;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+            <!-- Chrome -->
+            <div class="flex items-center gap-2 px-3 py-2.5" style="background:#111827;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <div class="flex items-center gap-1">
+                <div class="w-2.5 h-2.5 rounded-full" style="background:#FF5F57;"></div>
+                <div class="w-2.5 h-2.5 rounded-full" style="background:#FFBD2E;"></div>
+                <div class="w-2.5 h-2.5 rounded-full" style="background:#28C840;"></div>
+              </div>
+              <div class="flex-1 flex justify-center">
+                <div class="flex items-center gap-1 rounded px-2 py-0.5 text-xs" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);color:rgba(100,116,139,0.7);font-size:10px;">shopflow.app</div>
+              </div>
+              <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs" style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#4ADE80;font-size:10px;">
+                <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                Live
+              </div>
+            </div>
+            <!-- KPI row -->
+            <div class="grid grid-cols-3 gap-2 p-3">
+              {[
+                { label: 'Дохід', value: '₴284K', delta: '+18%' },
+                { label: 'Замовлення', value: '1 492', delta: '+24%' },
+                { label: 'Конверсія', value: '4.7%', delta: '+0.3%' },
+              ].map((kpi) => (
+                <div class="rounded-xl p-2.5" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                  <p style="font-size:9px;color:rgba(100,116,139,0.7);margin-bottom:4px;">{kpi.label}</p>
+                  <p class="font-display font-bold text-white" style="font-size:13px;line-height:1;">{kpi.value}</p>
+                  <p style="font-size:9px;color:#4ADE80;margin-top:3px;">{kpi.delta}</p>
+                </div>
+              ))}
+            </div>
+            <!-- Mini chart -->
+            <div class="px-3 pb-3">
+              <div class="rounded-xl p-2.5" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);">
+                <svg viewBox="0 0 420 60" class="w-full" style="height:60px;" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="mgA" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.3"/>
+                      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,50 C50,44 80,32 130,28 C180,24 200,38 250,20 C300,6 330,14 370,4 C390,1 405,3 420,1 L420,60 L0,60 Z" fill="url(#mgA)"/>
+                  <path d="M0,50 C50,44 80,32 130,28 C180,24 200,38 250,20 C300,6 330,14 370,4 C390,1 405,3 420,1" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="420" cy="1" r="3" fill="#3B82F6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!-- Tech pills row -->
+          <div class="flex items-center gap-2 mt-4 overflow-x-auto pb-1 scrollbar-hide">
+            {['React', 'Node.js', 'Astro', 'PostgreSQL', 'Telegram API', 'Stripe'].map((t) => (
+              <span class="flex-shrink-0 text-xs px-3 py-1.5 rounded-full font-medium" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:rgba(148,163,184,0.9);">{t}</span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Right: Product mockup ── -->
+      <div id="hero-mockup" class="hidden lg:block relative" style="opacity:0;transform:translateY(30px);">
+
+        <!-- Glow behind mockup -->
+        <div class="absolute inset-0 rounded-3xl pointer-events-none"
+             style="background:radial-gradient(ellipse at 50% 50%,rgba(37,99,235,0.12),transparent 70%);filter:blur(40px);transform:scale(1.1);"></div>
+
+        <!-- Browser window -->
+        <div class="relative rounded-2xl overflow-hidden"
+             style="border:1px solid rgba(255,255,255,0.09);background:#0D1526;box-shadow:0 40px 120px rgba(0,0,0,0.65),0 0 0 1px rgba(37,99,235,0.12);">
+
+          <!-- Chrome bar -->
+          <div class="flex items-center gap-3 px-4 py-3" style="background:#111827;border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <div class="w-3 h-3 rounded-full" style="background:#FF5F57;"></div>
+              <div class="w-3 h-3 rounded-full" style="background:#FFBD2E;"></div>
+              <div class="w-3 h-3 rounded-full" style="background:#28C840;"></div>
+            </div>
+            <!-- URL bar -->
+            <div class="flex-1 flex justify-center">
+              <div class="flex items-center gap-1.5 rounded-md px-3 py-1 w-56"
+                   style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);">
+                <svg class="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                     style="color:rgba(100,116,139,0.6);">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+                </svg>
+                <span class="text-xs" style="color:rgba(100,116,139,0.7);">shopflow.app/dashboard</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- App layout -->
+          <div class="flex" style="height:360px;">
+
+            <!-- Icon sidebar -->
+            <div class="flex-shrink-0 py-4 flex flex-col items-center gap-2 border-r"
+                 style="width:56px;background:#0A1020;border-color:rgba(255,255,255,0.05);">
+              <!-- Logo -->
+              <div class="w-8 h-8 rounded-lg mb-3 flex items-center justify-center"
+                   style="background:linear-gradient(135deg,#2563EB,#06B6D4);">
+                <div class="w-3 h-3 rounded-sm bg-white"></div>
+              </div>
+              <!-- Nav icons -->
+              {[
+                { path: 'M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25', active: false },
+                { path: 'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z', active: true },
+                { path: 'M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z', active: false },
+                { path: 'M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z M15 12a3 3 0 11-6 0 3 3 0 016 0z', active: false },
+              ].map((item) => (
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center"
+                     style={item.active ? 'background:rgba(37,99,235,0.2);' : ''}>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"
+                       style={item.active ? 'color:#60A5FA;' : 'color:rgba(100,116,139,0.45);'}>
+                    <path stroke-linecap="round" stroke-linejoin="round" d={item.path}/>
+                  </svg>
+                </div>
+              ))}
+            </div>
+
+            <!-- Dashboard content -->
+            <div class="flex-1 p-4 overflow-hidden" style="background:#0D1526;">
+
+              <!-- Header -->
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <p class="text-white text-sm font-semibold font-display">Аналітика продажів</p>
+                  <p class="text-xs mt-0.5" style="color:rgba(100,116,139,0.65);">Жовтень 2024 · Оновлено щойно</p>
+                </div>
+                <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium"
+                     style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#4ADE80;">
+                  <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                  Live
+                </div>
+              </div>
+
+              <!-- KPI row -->
+              <div class="grid grid-cols-3 gap-2 mb-3">
+                {[
+                  { label: 'Дохід', value: '₴284K', delta: '+18%' },
+                  { label: 'Замовлення', value: '1 492', delta: '+24%' },
+                  { label: 'Конверсія', value: '4.7%', delta: '+0.3%' },
+                ].map((kpi) => (
+                  <div class="rounded-xl p-2.5" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+                    <p class="text-xs mb-1.5" style="color:rgba(100,116,139,0.7);">{kpi.label}</p>
+                    <p class="font-display font-bold text-sm text-white leading-none mb-1">{kpi.value}</p>
+                    <p class="text-xs font-medium" style="color:#4ADE80;">{kpi.delta}</p>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Chart -->
+              <div class="rounded-xl p-3" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);">
+                <p class="text-xs mb-2" style="color:rgba(100,116,139,0.55);">Динаміка виручки</p>
+                <svg viewBox="0 0 420 90" class="w-full" style="height:105px;" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.25"/>
+                      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="areaGrad2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.15"/>
+                      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Blue area -->
+                  <path d="M0,78 C50,70 80,55 130,48 C180,41 200,60 250,38 C300,18 330,28 370,12 C390,6 405,8 420,4 L420,90 L0,90 Z"
+                        fill="url(#areaGrad)"/>
+                  <path d="M0,78 C50,70 80,55 130,48 C180,41 200,60 250,38 C300,18 330,28 370,12 C390,6 405,8 420,4"
+                        fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+                  <!-- Cyan area -->
+                  <path d="M0,86 C60,80 90,74 140,68 C190,62 220,72 270,58 C320,44 350,52 390,40 C405,36 415,38 420,34 L420,90 L0,90 Z"
+                        fill="url(#areaGrad2)"/>
+                  <path d="M0,86 C60,80 90,74 140,68 C190,62 220,72 270,58 C320,44 350,52 390,40 C405,36 415,38 420,34"
+                        fill="none" stroke="#06B6D4" stroke-width="1.5" stroke-opacity="0.6" stroke-linecap="round"/>
+                  <!-- Dot at peak -->
+                  <circle cx="420" cy="4" r="3.5" fill="#3B82F6"/>
+                  <circle cx="420" cy="4" r="6" fill="#3B82F6" fill-opacity="0.2"/>
+                </svg>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+
+        <!-- Tech badge — top left -->
+        <div id="badge-tech" class="absolute rounded-2xl px-3.5 py-2.5 flex items-center gap-2.5"
+             style="top:-16px;left:-20px;background:rgba(9,13,24,0.95);border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 40px rgba(0,0,0,0.5);opacity:0;">
+          <div class="w-7 h-7 rounded-xl flex items-center justify-center flex-shrink-0"
+               style="background:linear-gradient(135deg,#2563EB,#06B6D4);">
+            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-white text-xs font-semibold leading-none mb-0.5">Full-Stack Dev</p>
+            <p style="font-size:10px;color:rgba(100,116,139,0.8);">React · Node · Astro</p>
+          </div>
+        </div>
+
+        <!-- Perf badge — top right -->
+        <div id="badge-perf" class="absolute flex items-center gap-2 rounded-xl px-3 py-2"
+             style="top:-12px;right:-16px;background:rgba(9,13,24,0.95);border:1px solid rgba(34,197,94,0.25);box-shadow:0 8px 32px rgba(0,0,0,0.5);opacity:0;">
+          <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+          <span class="font-display font-bold text-white text-base leading-none">99</span>
+          <span class="text-brand-gray text-xs">Lighthouse</span>
+        </div>
+
+        <!-- Deploy badge — bottom right -->
+        <div id="badge-deploy" class="absolute rounded-2xl px-3.5 py-2.5 flex items-center gap-2.5"
+             style="bottom:-16px;right:-16px;background:rgba(9,13,24,0.95);border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 40px rgba(0,0,0,0.5);opacity:0;">
+          <div class="w-7 h-7 rounded-xl flex items-center justify-center flex-shrink-0"
+               style="background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.25);">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                 style="color:#60A5FA;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-white text-xs font-semibold leading-none mb-0.5">Задеплоєно</p>
+            <p style="font-size:10px;color:rgba(100,116,139,0.8);">Vercel · Production</p>
+          </div>
+        </div>
+
+        <!-- Clients badge — bottom left -->
+        <div id="badge-clients" class="absolute rounded-2xl px-3.5 py-2.5 flex items-center gap-3"
+             style="bottom:-12px;left:-20px;background:rgba(9,13,24,0.95);border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 40px rgba(0,0,0,0.5);opacity:0;">
+          <div class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+               style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.2);">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"
+                 style="color:#06B6D4;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-display font-bold text-white text-sm leading-none mb-0.5">30+ клієнтів</p>
+            <p style="font-size:10px;color:rgba(100,116,139,0.7);">по всій Україні</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-brand-gray/50">
+    <span class="text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-px h-10 mt-1" style="background:linear-gradient(180deg,rgba(59,130,246,0.6),transparent)"></div>
+  </div>
+
+</section>
+
+<script is:inline>
+  // ── Entrance timeline ──────────────────────────────────────
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  tl.to('#hero-tag',      { opacity:1, y:0, duration:0.7 })
+    .to('#hero-headline', { opacity:1, y:0, duration:0.85 }, '-=0.4')
+    .to('#hero-sub',      { opacity:1, y:0, duration:0.7  }, '-=0.45')
+    .to('#hero-cta',      { opacity:1, y:0, duration:0.65 }, '-=0.4')
+    .to('#hero-mobile-visual', { opacity:1, y:0, duration:0.8, ease:'power2.out' }, '-=0.3')
+    .to('#hero-mockup',   { opacity:1, y:0, duration:1,   ease:'power2.out' }, '-=0.5')
+    .to(['#badge-tech','#badge-perf','#badge-deploy','#badge-clients'], {
+        opacity: 1,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: 'back.out(1.6)',
+        from: { scale: 0.8 },
+      }, '-=0.4');
+
+  // ── Gentle float on the mockup ─────────────────────────────
+  gsap.to('#hero-mockup', {
+    y: -12,
+    duration: 4.5,
+    ease: 'sine.inOut',
+    yoyo: true,
+    repeat: -1,
+  });
+
+  // ── Word cycling ───────────────────────────────────────────
+  const words = ['зростають', 'конвертують', 'вражають', 'продають'];
+  let idx = 0;
+  const wordEl = document.getElementById('hero-word');
+
+  setInterval(() => {
+    idx = (idx + 1) % words.length;
+    gsap.to(wordEl, {
+      opacity: 0, y: -12, duration: 0.35, ease: 'power2.in',
+      onComplete: () => {
+        wordEl.textContent = words[idx];
+        gsap.fromTo(wordEl, { opacity:0, y:14 }, { opacity:1, y:0, duration:0.45, ease:'power2.out' });
+      },
+    });
+  }, 2800);
+</script>

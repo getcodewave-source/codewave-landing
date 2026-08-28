@@ -1,0 +1,337 @@
+---
+const navLinks = [
+  { label: 'Послуги',   href: '#services',  id: 'services'  },
+  { label: 'Процес',    href: '#process',   id: 'process'   },
+  { label: 'Портфоліо', href: '#portfolio', id: 'portfolio' },
+  { label: 'Контакти',  href: '#contact',   id: 'contact'   },
+];
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50"
+        style="transition:transform 0.45s cubic-bezier(.4,0,.2,1);">
+
+  <!-- Frosted backdrop (fades in on scroll) -->
+  <div id="header-bg" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500"
+       style="background:rgba(8,14,26,0.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);"></div>
+
+  <!-- Gradient bottom line (fades in on scroll) -->
+  <div id="header-line" class="absolute bottom-0 left-0 right-0 h-px pointer-events-none opacity-0 transition-opacity duration-500"
+       style="background:linear-gradient(90deg,transparent,rgba(59,130,246,0.45),rgba(6,182,212,0.45),transparent);"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:gap-4">
+
+    <!-- ── Logo ── -->
+    <a href="/" class="flex items-center gap-2.5 group min-w-0" aria-label="CodeWave home">
+      <img src="/codewave_icon_transparent.svg" alt=""
+           class="h-8 w-auto flex-shrink-0 transition-transform duration-300 group-hover:scale-110"/>
+      <span class="font-display font-bold text-lg tracking-tight whitespace-nowrap">
+        <span class="text-white">Code</span><span class="gradient-text">wave</span>
+      </span>
+    </a>
+
+    <!-- ── Floating pill nav (desktop, truly centered) ── -->
+    <nav class="hidden md:flex justify-center">
+      <div id="nav-pill"
+           class="flex items-center gap-0.5 px-1.5 py-1.5 rounded-2xl transition-all duration-500"
+           style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            data-section={link.id}
+            class="nav-link relative px-4 py-1.5 rounded-xl text-sm font-medium text-brand-gray transition-all duration-300 hover:text-white whitespace-nowrap"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <!-- ── CTA + Burger ── -->
+    <div class="flex items-center gap-3 justify-end">
+
+      <!-- Magnetic CTA (desktop) -->
+      <div id="cta-wrap" class="hidden md:block" style="transition:transform 0.15s ease;">
+        <a href="#contact" id="header-cta"
+           class="inline-flex items-center gap-2 font-semibold text-sm text-white rounded-full relative overflow-hidden"
+           style="padding:10px 22px;background:linear-gradient(135deg,#2563EB,#06B6D4);cursor:none;">
+          <div id="cta-shine" class="absolute inset-0 opacity-0 transition-opacity duration-300"
+               style="background:linear-gradient(135deg,#1D4ED8,#0891B2);"></div>
+          <span class="relative z-10">Зв'язатися</span>
+          <svg class="w-3.5 h-3.5 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile burger -->
+      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="burger-line block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+        <span class="burger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="burger-line block w-4 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+      </button>
+    </div>
+  </div>
+
+</header>
+
+<!-- ── Backdrop ── -->
+<div id="mob-backdrop" class="md:hidden fixed inset-0 z-[59] opacity-0 pointer-events-none transition-opacity duration-400"
+     style="background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);"></div>
+
+<!-- ── Bottom sheet ── -->
+<div id="mob-sheet" class="md:hidden fixed bottom-0 left-0 right-0 z-[60] flex flex-col"
+     style="transform:translateY(100%);transition:transform 0.42s cubic-bezier(0.32,0.72,0,1);border-radius:28px 28px 0 0;background:rgba(9,14,26,0.97);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border-top:1px solid rgba(255,255,255,0.1);padding-bottom:env(safe-area-inset-bottom,16px);">
+
+  <!-- Drag handle -->
+  <div id="sheet-drag" class="flex justify-center pt-3.5 pb-1 cursor-grab active:cursor-grabbing">
+    <div class="w-10 h-1 rounded-full" style="background:rgba(255,255,255,0.18);"></div>
+  </div>
+
+  <!-- Sheet header row -->
+  <div class="flex items-center justify-between px-6 py-4" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+    <a href="/" class="flex items-center gap-2.5" id="sheet-logo-link">
+      <img src="/codewave_icon_transparent.svg" alt="" class="h-7 w-auto"/>
+      <span class="font-display font-bold text-base">
+        <span class="text-white">Code</span><span class="gradient-text">wave</span>
+      </span>
+    </a>
+    <button id="sheet-close"
+            class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
+            style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);"
+            aria-label="Закрити меню">
+      <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <nav class="px-4 pt-3 pb-2 flex flex-col gap-0.5">
+    {navLinks.map((link, i) => (
+      <a href={link.href}
+         class="sheet-link mobile-nav-link group flex items-center gap-4 px-4 py-4 rounded-2xl transition-all duration-200 active:bg-white/5"
+         style="opacity:0;transform:translateY(18px);">
+        <span class="font-display font-bold text-xs w-6 flex-shrink-0 tabular-nums"
+              style="background:linear-gradient(135deg,#2563EB,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+          0{i + 1}
+        </span>
+        <span class="text-white font-semibold text-xl">{link.label}</span>
+        <svg class="w-4 h-4 ml-auto opacity-0 group-active:opacity-100 flex-shrink-0 transition-opacity"
+             style="color:#06B6D4;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    ))}
+  </nav>
+
+  <!-- CTA -->
+  <div class="px-5 pt-3 pb-6">
+    <div class="h-px mb-5" style="background:rgba(255,255,255,0.07);"></div>
+    <a href="#contact" id="sheet-cta"
+       class="mobile-nav-link btn-primary w-full justify-center sheet-link"
+       style="opacity:0;transform:translateY(18px);">
+      <span>Зв'язатися</span>
+      <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<style is:global>
+  .nav-link.active {
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(135deg, #3B82F6, #06B6D4);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  .nav-link.active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    background: rgba(37, 99, 235, 0.12);
+    pointer-events: none;
+  }
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #06B6D4;
+  }
+</style>
+
+<script is:inline>
+  const header   = document.getElementById('site-header');
+  const headerBg = document.getElementById('header-bg');
+  const headerLine = document.getElementById('header-line');
+  const navPill  = document.getElementById('nav-pill');
+  const ctaWrap  = document.getElementById('cta-wrap');
+  const ctaShine = document.getElementById('cta-shine');
+
+  // ── Scroll: bg + smart hide/show ────────────────────────────
+  let lastY = 0;
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+
+      // Background
+      const scrolled = y > 40;
+      headerBg.style.opacity   = scrolled ? '1' : '0';
+      headerLine.style.opacity = scrolled ? '1' : '0';
+      if (navPill) {
+        navPill.style.background   = scrolled ? 'rgba(255,255,255,0.07)' : 'rgba(255,255,255,0.04)';
+        navPill.style.borderColor  = scrolled ? 'rgba(255,255,255,0.13)' : 'rgba(255,255,255,0.09)';
+      }
+
+      // Smart hide / show
+      if (y > 100) {
+        header.style.transform = y > lastY ? 'translateY(-100%)' : 'translateY(0)';
+      } else {
+        header.style.transform = 'translateY(0)';
+      }
+
+      lastY = y;
+      ticking = false;
+    });
+  }, { passive: true });
+
+  // ── Active section tracking ───────────────────────────────────
+  // DOMContentLoaded — бо Header рендериться до решти секцій
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = ['services', 'process', 'portfolio', 'contact']
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    function updateActive() {
+      const scrollY = window.scrollY + 100;
+      let current = '';
+      sections.forEach((s) => {
+        if (s.offsetTop <= scrollY) current = s.id;
+      });
+      navLinks.forEach((l) => {
+        l.classList.toggle('active', l.dataset.section === current);
+      });
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  });
+
+  // ── Magnetic CTA ─────────────────────────────────────────────
+  if (ctaWrap && window.matchMedia('(pointer: fine)').matches) {
+    const cta = document.getElementById('header-cta');
+
+    ctaWrap.addEventListener('mousemove', (e) => {
+      const r = ctaWrap.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width  / 2) * 0.3;
+      const y = (e.clientY - r.top  - r.height / 2) * 0.4;
+      ctaWrap.style.transform = `translate(${x}px,${y}px)`;
+    });
+    ctaWrap.addEventListener('mouseleave', () => {
+      ctaWrap.style.transform = '';
+    });
+    cta.addEventListener('mouseenter', () => { ctaShine.style.opacity = '1'; });
+    cta.addEventListener('mouseleave', () => { ctaShine.style.opacity = '0'; });
+  }
+
+  // ── Bottom sheet ─────────────────────────────────────────────
+  const btn      = document.getElementById('menu-btn');
+  const sheet    = document.getElementById('mob-sheet');
+  const backdrop = document.getElementById('mob-backdrop');
+  const lines    = btn.querySelectorAll('.burger-line');
+  const sheetLinks = document.querySelectorAll('.sheet-link');
+  let sheetOpen = false;
+
+  function openSheet() {
+    sheetOpen = true;
+    document.body.style.overflow = 'hidden';
+    sheet.style.transform = 'translateY(0)';
+    backdrop.style.opacity = '1';
+    backdrop.style.pointerEvents = 'auto';
+    // Burger → X
+    lines[0].style.transform = 'translateY(8px) rotate(45deg)';
+    lines[1].style.opacity   = '0';
+    lines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    lines[2].style.width     = '24px';
+    // Stagger links in
+    sheetLinks.forEach((el, i) => {
+      setTimeout(() => {
+        el.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+        el.style.opacity    = '1';
+        el.style.transform  = 'translateY(0)';
+      }, 80 + i * 55);
+    });
+  }
+
+  function closeSheet() {
+    sheetOpen = false;
+    document.body.style.overflow = '';
+    sheet.style.transform = 'translateY(100%)';
+    backdrop.style.opacity = '0';
+    backdrop.style.pointerEvents = 'none';
+    // X → Burger
+    lines[0].style.transform = '';
+    lines[1].style.opacity   = '';
+    lines[2].style.transform = '';
+    lines[2].style.width     = '';
+    // Reset link states for next open
+    setTimeout(() => {
+      sheetLinks.forEach((el) => {
+        el.style.transition = 'none';
+        el.style.opacity    = '0';
+        el.style.transform  = 'translateY(18px)';
+      });
+    }, 420);
+  }
+
+  btn.addEventListener('click', () => sheetOpen ? closeSheet() : openSheet());
+  backdrop.addEventListener('click', closeSheet);
+  document.getElementById('sheet-close').addEventListener('click', closeSheet);
+  document.querySelectorAll('.mobile-nav-link').forEach((l) => l.addEventListener('click', closeSheet));
+
+  // ── Drag to dismiss ───────────────────────────────────────────
+  const dragHandle = document.getElementById('sheet-drag');
+  let dragStartY = 0, dragging = false;
+
+  function onDragStart(e) {
+    dragging = true;
+    dragStartY = (e.touches ? e.touches[0].clientY : e.clientY);
+    sheet.style.transition = 'none';
+  }
+  function onDragMove(e) {
+    if (!dragging) return;
+    const y = (e.touches ? e.touches[0].clientY : e.clientY);
+    const delta = Math.max(0, y - dragStartY);
+    sheet.style.transform = `translateY(${delta}px)`;
+  }
+  function onDragEnd(e) {
+    if (!dragging) return;
+    dragging = false;
+    sheet.style.transition = 'transform 0.42s cubic-bezier(0.32,0.72,0,1)';
+    const y = (e.changedTouches ? e.changedTouches[0].clientY : e.clientY);
+    if (y - dragStartY > 90) {
+      closeSheet();
+    } else {
+      sheet.style.transform = 'translateY(0)';
+    }
+  }
+
+  dragHandle.addEventListener('touchstart', onDragStart, { passive: true });
+  dragHandle.addEventListener('touchmove',  onDragMove,  { passive: true });
+  dragHandle.addEventListener('touchend',   onDragEnd);
+  // Mouse drag (desktop dev)
+  dragHandle.addEventListener('mousedown',  onDragStart);
+  window.addEventListener('mousemove',  onDragMove);
+  window.addEventListener('mouseup',    onDragEnd);
+</script>

@@ -1,0 +1,106 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'CodeWave — IT-рішення та веб-розробка',
+  description = 'Розробляємо веб-додатки, лендінги та Telegram-боти для бізнесу, який хоче виділятися онлайн.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/codewave_icon_transparent.svg" />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP + ScrollTrigger — реєструємо одразу -->
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script is:inline>gsap.registerPlugin(ScrollTrigger);</script>
+
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+
+  <body>
+    <!-- ── Custom cursor ── -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <slot />
+
+    <script is:inline>
+      // ── GSAP reveal для .gsap-reveal ───────────────────────
+      gsap.utils.toArray('.gsap-reveal').forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 88%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+
+      // ── Custom cursor (transform замість left/top — без layout) ─
+      const dot  = document.getElementById('cursor-dot');
+      const ring = document.getElementById('cursor-ring');
+
+      if (window.matchMedia('(pointer: fine)').matches) {
+        let mx = 0, my = 0, rx = 0, ry = 0;
+
+        // Крапка — миттєво через transform
+        document.addEventListener('mousemove', (e) => {
+          mx = e.clientX;
+          my = e.clientY;
+          dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+        }, { passive: true });
+
+        // Кільце — з lerp-затримкою, теж через transform
+        (function lerpRing() {
+          rx += (mx - rx) * 0.11;
+          ry += (my - ry) * 0.11;
+          ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+          requestAnimationFrame(lerpRing);
+        })();
+
+        document.addEventListener('mouseleave', () => {
+          dot.classList.add('hidden'); ring.classList.add('hidden');
+        });
+        document.addEventListener('mouseenter', () => {
+          dot.classList.remove('hidden'); ring.classList.remove('hidden');
+        });
+
+        document.querySelectorAll('a, button, [role="button"]').forEach((el) => {
+          el.addEventListener('mouseenter', () => {
+            dot.classList.add('hovered'); ring.classList.add('hovered');
+          });
+          el.addEventListener('mouseleave', () => {
+            dot.classList.remove('hovered'); ring.classList.remove('hovered');
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

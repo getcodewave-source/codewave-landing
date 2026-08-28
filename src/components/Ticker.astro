@@ -1,0 +1,24 @@
+---
+const items = [
+  'React', 'Next.js', 'TypeScript', 'Node.js', 'Python',
+  'Astro', 'Tailwind CSS', 'PostgreSQL', 'MongoDB', 'Redis',
+  'Telegram API', 'REST API', 'GraphQL', 'Docker', 'Vercel',
+  'GSAP', 'Stripe', 'Webhooks', 'Vue.js', 'Laravel',
+];
+
+// Дублюємо для безшовної петлі
+const doubled = [...items, ...items];
+---
+
+<div class="marquee-wrapper py-6" style="background:#0A101F;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+  <div class="marquee-track">
+    {doubled.map((item, i) => (
+      <div class="flex items-center gap-8 px-4 select-none">
+        <span class="text-brand-gray text-sm font-medium whitespace-nowrap hover:text-white transition-colors duration-200">
+          {item}
+        </span>
+        <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:linear-gradient(135deg,#3B82F6,#06B6D4);opacity:0.6;"></span>
+      </div>
+    ))}
+  </div>
+</div>
