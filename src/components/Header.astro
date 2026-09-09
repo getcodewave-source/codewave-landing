@@ -12,7 +12,7 @@ const navLinks = [
 
   <!-- Frosted backdrop (fades in on scroll) -->
   <div id="header-bg" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500"
-       style="background:rgba(8,14,26,0.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);"></div>
+       style="background:var(--header-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);"></div>
 
   <!-- Gradient bottom line (fades in on scroll) -->
   <div id="header-line" class="absolute bottom-0 left-0 right-0 h-px pointer-events-none opacity-0 transition-opacity duration-500"
@@ -33,7 +33,7 @@ const navLinks = [
     <nav class="hidden md:flex justify-center">
       <div id="nav-pill"
            class="flex items-center gap-0.5 px-1.5 py-1.5 rounded-2xl transition-all duration-500"
-           style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+           style="background:var(--surface-md);border:1px solid var(--border);">
         {navLinks.map((link) => (
           <a
             href={link.href}
@@ -63,6 +63,20 @@ const navLinks = [
         </a>
       </div>
 
+      <!-- Theme toggle -->
+      <button id="theme-toggle" aria-label="Змінити тему"
+              class="hidden md:flex w-9 h-9 rounded-xl items-center justify-center transition-all duration-200"
+              style="background:var(--surface);border:1px solid var(--border);">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="icon-sun" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:#F59E0B;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+        </svg>
+        <!-- Moon icon (shown in light mode, hidden in dark) -->
+        <svg id="icon-moon" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:#64748B;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+        </svg>
+      </button>
+
       <!-- Mobile burger -->
       <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
         <span class="burger-line block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
@@ -80,15 +94,15 @@ const navLinks = [
 
 <!-- ── Bottom sheet ── -->
 <div id="mob-sheet" class="md:hidden fixed bottom-0 left-0 right-0 z-[60] flex flex-col"
-     style="transform:translateY(100%);transition:transform 0.42s cubic-bezier(0.32,0.72,0,1);border-radius:28px 28px 0 0;background:rgba(9,14,26,0.97);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border-top:1px solid rgba(255,255,255,0.1);padding-bottom:env(safe-area-inset-bottom,16px);">
+     style="transform:translateY(100%);transition:transform 0.42s cubic-bezier(0.32,0.72,0,1);border-radius:28px 28px 0 0;background:var(--sheet-bg);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border-top:1px solid var(--border-md);padding-bottom:env(safe-area-inset-bottom,16px);">
 
   <!-- Drag handle -->
   <div id="sheet-drag" class="flex justify-center pt-3.5 pb-1 cursor-grab active:cursor-grabbing">
-    <div class="w-10 h-1 rounded-full" style="background:rgba(255,255,255,0.18);"></div>
+    <div class="w-10 h-1 rounded-full" style="background:var(--border-strong);"></div>
   </div>
 
   <!-- Sheet header row -->
-  <div class="flex items-center justify-between px-6 py-4" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="flex items-center justify-between px-6 py-4" style="border-bottom:1px solid var(--border);">
     <a href="/" class="flex items-center gap-2.5" id="sheet-logo-link">
       <img src="/codewave_icon_transparent.svg" alt="" class="h-7 w-auto"/>
       <span class="font-display font-bold text-base">
@@ -97,7 +111,7 @@ const navLinks = [
     </a>
     <button id="sheet-close"
             class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
-            style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);"
+            style="background:var(--surface-strong);border:1px solid var(--border-md);"
             aria-label="Закрити меню">
       <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
@@ -124,9 +138,28 @@ const navLinks = [
     ))}
   </nav>
 
+  <!-- Mobile theme toggle -->
+  <div class="px-4 pb-2">
+    <button id="theme-toggle-mobile"
+            class="w-full flex items-center gap-4 px-4 py-3 rounded-2xl transition-all duration-200"
+            style="background:var(--surface);border:1px solid var(--border);">
+      <span id="icon-sun-m" class="text-amber-400">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+        </svg>
+      </span>
+      <span id="icon-moon-m" class="hidden" style="color:#64748B;">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+        </svg>
+      </span>
+      <span id="toggle-label-m" class="text-sm font-semibold" style="color:var(--text);">Світла тема</span>
+    </button>
+  </div>
+
   <!-- CTA -->
   <div class="px-5 pt-3 pb-6">
-    <div class="h-px mb-5" style="background:rgba(255,255,255,0.07);"></div>
+    <div class="h-px mb-5" style="background:var(--border);"></div>
     <a href="#contact" id="sheet-cta"
        class="mobile-nav-link btn-primary w-full justify-center sheet-link"
        style="opacity:0;transform:translateY(18px);">
@@ -189,8 +222,8 @@ const navLinks = [
       headerBg.style.opacity   = scrolled ? '1' : '0';
       headerLine.style.opacity = scrolled ? '1' : '0';
       if (navPill) {
-        navPill.style.background   = scrolled ? 'rgba(255,255,255,0.07)' : 'rgba(255,255,255,0.04)';
-        navPill.style.borderColor  = scrolled ? 'rgba(255,255,255,0.13)' : 'rgba(255,255,255,0.09)';
+        navPill.style.background   = scrolled ? 'var(--surface-strong)' : 'var(--surface-md)';
+        navPill.style.borderColor  = scrolled ? 'var(--border-md)' : 'var(--border)';
       }
 
       // Smart hide / show
@@ -334,4 +367,30 @@ const navLinks = [
   dragHandle.addEventListener('mousedown',  onDragStart);
   window.addEventListener('mousemove',  onDragMove);
   window.addEventListener('mouseup',    onDragEnd);
+
+  // ── Theme toggle ─────────────────────────────────────────────
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    const isDark = theme === 'dark';
+    // Desktop icons
+    document.getElementById('icon-sun').classList.toggle('hidden', !isDark);
+    document.getElementById('icon-moon').classList.toggle('hidden', isDark);
+    // Mobile icons
+    document.getElementById('icon-sun-m').classList.toggle('hidden', !isDark);
+    document.getElementById('icon-moon-m').classList.toggle('hidden', isDark);
+    document.getElementById('toggle-label-m').textContent = isDark ? 'Світла тема' : 'Темна тема';
+  }
+
+  // Init icon state
+  applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+  document.getElementById('theme-toggle-mobile').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
 </script>

@@ -38,7 +38,7 @@ const steps = [
 ];
 ---
 
-<section id="process" class="section-padding relative overflow-hidden" style="background:#080E1A;">
+<section id="process" class="section-padding relative overflow-hidden" style="background:var(--bg-2);">
 
   <!-- Ambient glow -->
   <div class="absolute inset-0 pointer-events-none">
@@ -94,7 +94,7 @@ const steps = [
 
             <!-- Thin vertical separator — desktop only -->
             <div class="w-px self-stretch flex-shrink-0 transition-colors duration-400 hidden lg:block"
-                 style="background:rgba(255,255,255,0.07);min-height:48px;"></div>
+                 style="background:var(--border);min-height:48px;"></div>
 
             <!-- Title + description -->
             <div class="flex-1 min-w-0">
@@ -105,7 +105,7 @@ const steps = [
               <!-- Tags — mobile only -->
               <div class="flex items-center gap-1.5 flex-wrap mt-3 lg:hidden">
                 {step.tags.map((tag) => (
-                  <span class="text-xs font-medium rounded-full px-2.5 py-1" style="border:1px solid rgba(255,255,255,0.09);color:rgba(100,116,139,0.8);background:rgba(255,255,255,0.03);">{tag}</span>
+                  <span class="text-xs font-medium rounded-full px-2.5 py-1" style="border:1px solid var(--border);color:rgba(100,116,139,0.8);background:var(--surface);">{tag}</span>
                 ))}
               </div>
             </div>
@@ -115,7 +115,7 @@ const steps = [
               {step.tags.map((tag) => (
                 <span
                   class="text-xs font-medium rounded-full px-3.5 py-1.5 transition-all duration-300"
-                  style="border:1px solid rgba(255,255,255,0.07);color:rgba(100,116,139,1);background:rgba(255,255,255,0.02);"
+                  style="border:1px solid var(--border);color:rgba(100,116,139,1);background:var(--surface);"
                 >
                   {tag}
                 </span>

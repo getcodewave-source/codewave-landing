@@ -11,7 +11,7 @@ const items = [
 const doubled = [...items, ...items];
 ---
 
-<div class="marquee-wrapper py-6" style="background:#0A101F;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+<div class="marquee-wrapper py-6" style="background:var(--ticker-bg);border-top:1px solid var(--ticker-border);border-bottom:1px solid var(--ticker-border);">
   <div class="marquee-track">
     {doubled.map((item, i) => (
       <div class="flex items-center gap-8 px-4 select-none">

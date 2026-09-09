@@ -27,7 +27,7 @@ const stats = [
 ];
 ---
 
-<section id="stats" class="relative overflow-hidden" style="background:#060B15;">
+<section id="stats" class="relative overflow-hidden" style="background:var(--bg-1);">
 
   <!-- Top gradient line -->
   <div class="gradient-line"></div>
@@ -69,9 +69,9 @@ const stats = [
     </div>
 
     <!-- ── Mobile: 2×2 ── -->
-    <div class="grid md:hidden grid-cols-2 gap-px" style="background:rgba(255,255,255,0.05);" id="stats-grid-mobile">
+    <div class="grid md:hidden grid-cols-2 gap-px" style="background:var(--surface-md);" id="stats-grid-mobile">
       {stats.map((stat) => (
-        <div class="stat-item-mobile px-6 py-10 text-center" style="background:#060B15;" data-target={stat.value} data-suffix={stat.suffix}>
+        <div class="stat-item-mobile px-6 py-10 text-center" style="background:var(--bg-1);" data-target={stat.value} data-suffix={stat.suffix}>
           <div
             class="counter-m font-display font-bold gradient-text leading-none mb-2"
             style="font-size:clamp(2.5rem,10vw,3.25rem);"
