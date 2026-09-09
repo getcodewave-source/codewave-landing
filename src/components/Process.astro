@@ -2,31 +2,38 @@
 const steps = [
   {
     number: '01',
-    title: 'Аналіз',
-    description: 'Занурюємось у ваш бізнес: цілі, аудиторія, конкуренти. Разом будуємо чітке технічне завдання без води.',
-    tags: ['Бриф', 'Аналіз ринку', 'ТЗ'],
+    title: 'Консультація',
+    description: 'Знайомимось із вашими потребами, за необхідності підписуємо NDA та разом формуємо чітке розуміння мети і обсягу роботи.',
+    tags: ['Бриф', 'NDA', 'Оцінка потреб'],
     accent: ['#2563EB', '#3B82F6'],
   },
   {
     number: '02',
-    title: 'Дизайн',
-    description: 'Проєктуємо зручний UI/UX що відображає ваш бренд. Погоджуємо прототип до першого рядка коду.',
-    tags: ['Прототип', 'UI/UX', 'Адаптив'],
+    title: 'Аудит і планування',
+    description: 'Аналізуємо поточний стан систем або бізнес-процесів, готуємо детальний план, строки та погоджену вартість без прихованих платежів.',
+    tags: ['IT-аудит', 'Дорожня карта', 'Бюджет'],
     accent: ['#3B82F6', '#06B6D4'],
   },
   {
     number: '03',
-    title: 'Розробка',
-    description: 'Пишемо чистий, масштабований код. Регулярні демо кожні 1-2 тижні — бачите прогрес у реальному часі.',
-    tags: ['Frontend', 'Backend', 'Code review'],
+    title: 'Реалізація',
+    description: 'Виконуємо роботи: розробка, налаштування інфраструктури, дизайн, впровадження захисту або навчання команди — залежно від вашого запиту.',
+    tags: ['Розробка', 'Налаштування', 'Дизайн'],
     accent: ['#06B6D4', '#2563EB'],
   },
   {
     number: '04',
-    title: 'Запуск',
-    description: 'Деплоїмо, налаштовуємо аналітику і залишаємося поруч. Жоден баг не залишається без уваги після релізу.',
-    tags: ['Deploy', 'Моніторинг', 'Підтримка'],
-    accent: ['#2563EB', '#06B6D4'],
+    title: 'Здача та навчання',
+    description: 'Передаємо результат, тестуємо разом із вами, проводимо навчання користувачів та документуємо все необхідне для самостійної роботи.',
+    tags: ['Тестування', 'Документація', 'Навчання'],
+    accent: ['#2563EB', '#7C3AED'],
+  },
+  {
+    number: '05',
+    title: 'Підтримка',
+    description: 'Залишаємось поруч після запуску — моніторинг, оперативна реакція на інциденти та розвиток рішення разом із вашим бізнесом.',
+    tags: ['Моніторинг', 'Підтримка 24/7', 'Оновлення'],
+    accent: ['#7C3AED', '#06B6D4'],
   },
 ];
 ---
@@ -49,11 +56,11 @@ const steps = [
         <div>
           <div class="tag-pill mb-5">Як ми працюємо</div>
           <h2 class="font-display font-bold text-4xl md:text-5xl text-white">
-            Від ідеї до <span class="gradient-text">запуску</span>
+            Від запиту до <span class="gradient-text">результату</span>
           </h2>
         </div>
         <p class="text-brand-gray text-base max-w-xs leading-relaxed md:text-right">
-          Чіткий процес без сюрпризів&nbsp;—<br class="hidden md:block"/> ви в курсі кожного кроку.
+          Прозорий процес без сюрпризів&nbsp;—<br class="hidden md:block"/> ви в курсі кожного кроку.
         </p>
       </div>
     </div>
@@ -95,7 +102,7 @@ const steps = [
                 {step.title}
               </h3>
               <p class="text-brand-gray text-sm leading-relaxed max-w-xl">{step.description}</p>
-              <!-- Tags — mobile only (inside content block) -->
+              <!-- Tags — mobile only -->
               <div class="flex items-center gap-1.5 flex-wrap mt-3 lg:hidden">
                 {step.tags.map((tag) => (
                   <span class="text-xs font-medium rounded-full px-2.5 py-1" style="border:1px solid rgba(255,255,255,0.09);color:rgba(100,116,139,0.8);background:rgba(255,255,255,0.03);">{tag}</span>
@@ -144,6 +151,7 @@ const steps = [
     scrollTrigger: {
       trigger: '#process-rows',
       start: 'top 80%',
+      once: true,
     },
   });
 </script>

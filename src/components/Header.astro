@@ -2,7 +2,7 @@
 const navLinks = [
   { label: 'Послуги',   href: '#services',  id: 'services'  },
   { label: 'Процес',    href: '#process',   id: 'process'   },
-  { label: 'Портфоліо', href: '#portfolio', id: 'portfolio' },
+  { label: 'Чому ми',   href: '#why-us', id: 'why-us' },
   { label: 'Контакти',  href: '#contact',   id: 'contact'   },
 ];
 ---
@@ -209,7 +209,7 @@ const navLinks = [
   // DOMContentLoaded — бо Header рендериться до решти секцій
   document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = ['services', 'process', 'portfolio', 'contact']
+    const sections = ['services', 'process', 'why-us', 'contact']
       .map((id) => document.getElementById(id))
       .filter(Boolean);
 
