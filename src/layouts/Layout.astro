@@ -5,9 +5,12 @@ export interface Props {
 }
 
 const {
-  title = 'CodeWave — IT-рішення та веб-розробка',
-  description = 'Розробляємо веб-додатки, лендінги та Telegram-боти для бізнесу, який хоче виділятися онлайн.',
+  title = 'CodeWave — IT-послуги для бізнесу | Розробка, Кібербезпека, Підтримка',
+  description = 'CodeWave — комплексні IT-послуги для бізнесу в Україні. Веб та мобайл розробка, кібербезпека, IT-підтримка 24/7, UI/UX дизайн, аналітика даних та навчання. Індивідуальний підхід і фіксована вартість.',
 } = Astro.props;
+
+const siteUrl = 'https://getcodewave.com';
+const ogImage = `${siteUrl}/og-image.png`;
 ---
 
 <!doctype html>
@@ -15,10 +18,37 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/codewave_icon_transparent.svg" />
-    <title>{title}</title>
 
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="IT-послуги, веб розробка, мобайл додатки, кібербезпека, IT підтримка, UI UX дизайн, аналітика даних, IT консалтинг, хостинг, адміністрування серверів, навчання IT, Україна" />
+    <meta name="author" content="CodeWave" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/codewave_icon_transparent.svg" />
+    <meta name="theme-color" content="#060B15" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="CodeWave" />
+    <meta property="og:locale" content="uk_UA" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,26 +56,53 @@ const {
       rel="stylesheet"
     />
 
-    <!-- GSAP + ScrollTrigger — реєструємо одразу -->
+    <!-- GSAP + ScrollTrigger -->
     <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script is:inline>gsap.registerPlugin(ScrollTrigger);</script>
 
-
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CodeWave",
+      "url": "https://getcodewave.com",
+      "logo": "https://getcodewave.com/codewave_icon_transparent.svg",
+      "email": "getcodewave@gmail.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "availableLanguage": ["Ukrainian", "English"],
+        "email": "getcodewave@gmail.com"
+      },
+      "sameAs": [
+        "https://t.me/codewave_studio"
+      ],
+      "description": "Комплексні IT-послуги для бізнесу в Україні: веб та мобайл розробка, кібербезпека, IT-підтримка, UI/UX дизайн, аналітика та навчання.",
+      "areaServed": "UA",
+      "serviceType": [
+        "Веб-розробка",
+        "Мобайл розробка",
+        "Кібербезпека",
+        "IT-підтримка",
+        "UI/UX дизайн",
+        "Аналітика даних",
+        "IT-навчання"
+      ]
+    }
+    </script>
   </head>
 
   <body>
-    <!-- ── Custom cursor ── -->
+    <!-- Custom cursor -->
     <div id="cursor-dot"></div>
     <div id="cursor-ring"></div>
 
     <slot />
 
     <script is:inline>
-      // ── GSAP reveal для .gsap-reveal ───────────────────────
+      // GSAP reveal для .gsap-reveal
       gsap.utils.toArray('.gsap-reveal').forEach((el) => {
         gsap.fromTo(
           el,
@@ -63,21 +120,19 @@ const {
         );
       });
 
-      // ── Custom cursor (transform замість left/top — без layout) ─
+      // Custom cursor
       const dot  = document.getElementById('cursor-dot');
       const ring = document.getElementById('cursor-ring');
 
       if (window.matchMedia('(pointer: fine)').matches) {
         let mx = 0, my = 0, rx = 0, ry = 0;
 
-        // Крапка — миттєво через transform
         document.addEventListener('mousemove', (e) => {
           mx = e.clientX;
           my = e.clientY;
           dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
         }, { passive: true });
 
-        // Кільце — з lerp-затримкою, теж через transform
         (function lerpRing() {
           rx += (mx - rx) * 0.11;
           ry += (my - ry) * 0.11;
